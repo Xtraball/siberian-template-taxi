@@ -1,0 +1,12 @@
+{
+    "name": "TemplateTaxi",
+    "version": "1.0.0",
+    "description": "Taxi template & layout installer.",
+    "dependencies": {
+        "system": {
+            "type": "SAE",
+			"version": "4.15.0"
+        }
+    },
+    "type": "template"
+}

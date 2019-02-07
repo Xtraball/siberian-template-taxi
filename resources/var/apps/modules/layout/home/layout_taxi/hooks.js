@@ -79,7 +79,8 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
         isOnline: false,
         customer: null,
         isLoggedIn: Customer.isLoggedIn(),
-        isDriver: true,
+        isPassenger: false,
+        isDriver: false,
         cabride: layout_taxi.cabride
     });
 
@@ -134,7 +135,9 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
     };
 
     $scope.customerName = function () {
-        if ($scope.customer) {
+        if ($scope.customer &&
+            $scope.customer.firstname &&
+            $scope.customer.lastname) {
             var fname = $scope.customer.firstname.toLowerCase();
             fname = fname.charAt(0).toUpperCase() + fname.slice(1);
             var lname = $scope.customer.lastname.toUpperCase();
@@ -200,12 +203,18 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
         $scope.rebuildMenu();
     });
 
+    $rootScope.$on("cabride.setIsOnline", function (event, isOnline) {
+        $scope.isOnline = isOnline;
+    });
+
     $rootScope.$on("cabride.isPassenger", function () {
+        $scope.isPassenger = true;
         $scope.isDriver = false;
         $scope.rebuildMenu();
     });
 
     $rootScope.$on("cabride.isDriver", function () {
+        $scope.isPassenger = false;
         $scope.isDriver = true;
         $scope.rebuildMenu();
     });

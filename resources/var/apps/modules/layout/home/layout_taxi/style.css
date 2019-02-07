@@ -20,6 +20,13 @@
     line-height: 22px;
 }
 
+.layout_taxi .line-icon-box {
+    width: 4em;
+    line-height: 6vw;
+    display: flex;
+    justify-content: center;
+}
+
 .layout_taxi .line-title {
     line-height: 6vw;
     margin-left: 1em;

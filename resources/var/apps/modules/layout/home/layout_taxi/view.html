@@ -66,16 +66,11 @@
             <li class="lines border-custom"
                 ng-click="loadPage('cabride-home')">
                 <div class="line-box">
-                    <img class="line-icon"
-                         ng-src="{{ cabride.icon_url }}"/>
+                    <span class="line-icon-box">
+                        <img class="line-icon"
+                             ng-src="{{ cabride.icon_url }}"/>
+                    </span>
                     <span class="line-title">{{ cabride.name }}</span>
-                </div>
-            </li>
-
-            <li class="lines border-custom line-divider"
-                ng-if="isLoggedIn && isDriver">
-                <div class="line-box">
-                    <span class="line-title">{{ "Rides" | translate }}</span>
                 </div>
             </li>
 
@@ -83,7 +78,9 @@
                 ng-if="isLoggedIn && isDriver"
                 ng-click="loadPage('pending-requests')">
                 <div class="line-box">
-                    <i class="line-icon icon ion-cab-timer"></i>
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-timer"></i>
+                    </span>
                     <span class="line-title">{{ "Pending requests" | translate }}</span>
                 </div>
             </li>
@@ -92,7 +89,9 @@
                 ng-if="isLoggedIn && isDriver"
                 ng-click="loadPage('accepted-requests')">
                 <div class="line-box">
-                    <i class="line-icon icon ion-cab-timer-full"></i>
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-timer-full"></i>
+                    </span>
                     <span class="line-title">{{ "Accepted requests" | translate }}</span>
                 </div>
             </li>
@@ -101,7 +100,9 @@
                 ng-if="isLoggedIn && isDriver"
                 ng-click="loadPage('completed-rides')">
                 <div class="line-box">
-                    <i class="line-icon icon ion-cab-thumb-up"></i>
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-thumb-up"></i>
+                    </span>
                     <span class="line-title">{{ "Completed rides" | translate }}</span>
                 </div>
             </li>
@@ -110,7 +111,9 @@
                 ng-if="isLoggedIn && isDriver"
                 ng-click="loadPage('cancelled')">
                 <div class="line-box">
-                    <i class="line-icon icon ion-cab-cancel"></i>
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-cancel"></i>
+                    </span>
                     <span class="line-title">{{ "Cancelled" | translate }}</span>
                 </div>
             </li>
@@ -119,7 +122,9 @@
                 ng-if="isLoggedIn && isDriver"
                 ng-click="loadPage('vehicle-information')">
                 <div class="line-box">
-                    <i class="line-icon icon ion-cab-car"></i>
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-car"></i>
+                    </span>
                     <span class="line-title">{{ "Vehicle information" | translate }}</span>
                 </div>
             </li>
@@ -128,16 +133,20 @@
                 ng-if="isLoggedIn && isDriver"
                 ng-click="loadPage('payment-history')">
                 <div class="line-box">
-                    <i class="line-icon icon ion-cab-credit-card"></i>
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-credit-card"></i>
+                    </span>
                     <span class="line-title">{{ "Payment history" | translate }}</span>
                 </div>
             </li>
 
             <li class="lines border-custom"
-                ng-if="isLoggedIn && !isDriver"
+                ng-if="isLoggedIn && isPassenger"
                 ng-click="loadPage('passenger-rides')">
                 <div class="line-box">
-                    <i class="line-icon icon ion-cab-thumb-up"></i>
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-thumb-up"></i>
+                    </span>
                     <span class="line-title">{{ "My rides" | translate }}</span>
                 </div>
             </li>
@@ -151,8 +160,10 @@
                 go-to-url="goTo(feature)">
 
                 <div class="line-box">
-                    <img class="line-icon"
-                         ng-src="{{ feature.icon_url }}"/>
+                    <span class="line-icon-box">
+                        <img class="line-icon"
+                             ng-src="{{ feature.icon_url }}"/>
+                    </span>
                     <span class="line-title">{{ feature.name }}</span>
                 </div>
 

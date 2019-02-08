@@ -189,6 +189,8 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
 
     $rootScope.$on(SB.EVENTS.AUTH.logoutSuccess, function () {
         $scope.rebuildMenu();
+        $scope.isDriver = false;
+        $scope.isPassenger = false;
     });
 
     $rootScope.$on(SB.EVENTS.AUTH.loginSuccess, function () {

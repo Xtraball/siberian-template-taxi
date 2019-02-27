@@ -99,6 +99,9 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
             disableAnimate: false
         });
         switch (identifier) {
+            case "my-rides":
+                $state.go("cabride-my-rides");
+                break;
             case "cabride-home":
                 $state.go("cabride-home");
                 break;

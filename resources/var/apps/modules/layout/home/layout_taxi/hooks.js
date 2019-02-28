@@ -134,7 +134,7 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
     };
 
     $scope.loginOrSignup = function () {
-        Customer.loginModal($scope);
+        Customer.loginModal();
     };
 
     $scope.customerName = function () {

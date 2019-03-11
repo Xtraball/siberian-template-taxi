@@ -70,14 +70,14 @@ angular.module('starter').service('layout_taxi', function ($rootScope, HomepageL
 });
 
 // Custom controller
-angular.module('starter').controller('LayoutTaxiController', function ($scope, $rootScope, $state,
+angular.module('starter').controller('LayoutTaxiController', function ($scope, $rootScope, $state, $timeout,
                                                                        $ionicSideMenuDelegate,
                                                                        $ionicHistory, Customer,
                                                                        SB, layout_taxi) {
-
     angular.extend($scope, {
         isOnline: false,
         customer: null,
+        information: null,
         isLoggedIn: Customer.isLoggedIn(),
         isPassenger: false,
         isDriver: false,
@@ -206,6 +206,12 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
 
     $rootScope.$on(SB.EVENTS.AUTH.editSuccess, function () {
         $scope.rebuildMenu();
+    });
+
+    $rootScope.$on('cabride.aggregateInformation', function (event, data) {
+        $timeout(function () {
+            $scope.information = data.information;
+        });
     });
 
     $rootScope.$on("cabride.setIsOnline", function (event, isOnline) {

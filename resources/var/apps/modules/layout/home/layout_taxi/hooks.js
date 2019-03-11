@@ -102,6 +102,9 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
             case "my-rides":
                 $state.go("cabride-my-rides");
                 break;
+            case "my-payments":
+                $state.go("cabride-my-payments");
+                break;
             case "cabride-home":
                 $state.go("cabride-home");
                 break;

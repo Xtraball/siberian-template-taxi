@@ -165,6 +165,17 @@
                 </div>
             </li>
 
+            <li class="lines border-custom"
+                ng-if="isLoggedIn && isPassenger"
+                ng-click="loadPage('my-payments')">
+                <div class="line-box">
+                    <span class="line-icon-box">
+                        <i class="line-icon icon ion-cab-credit-card"></i>
+                    </span>
+                    <span class="line-title">{{ "My payments" | translate }}</span>
+                </div>
+            </li>
+
             <li ng-repeat="feature in features.options"
                 ng-if="feature.is_visible"
                 class="lines border-custom"

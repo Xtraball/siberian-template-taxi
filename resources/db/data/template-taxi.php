@@ -5,9 +5,9 @@ $ionicColors = [
         'background_color' => '#707487',
     ],
     'header' => [
-        'color' => '#ffffff',
-        'background_color' => '#ee4b63',
-        'border_color' => '#ffffff',
+        'color' => '#303030',
+        'background_color' => '#ffc850',
+        'border_color' => '#ffc850',
     ],
     'homepage' => [
         'color' => '#303030',
@@ -73,6 +73,87 @@ $ionicColors = [
     ],
     'buttons_dark' => [
         'color' => '#ffffff',
+        'background_color' => '#2b2b2b',
+        'border_color' => '#2b2b2b',
+    ],
+    'badges' => [
+        'color' => '#f0f0f0',
+        'background_color' => '#5b5d6e',
+    ],
+    'badges_light' => [
+        'color' => '#444',
+        'background_color' => '#dddddd',
+    ],
+    'badges_positive' => [
+        'color' => '#303030',
+        'background_color' => '#ffc850',
+    ],
+    'badges_calm' => [
+        'color' => '#ffffff',
+        'background_color' => '#2990ad',
+    ],
+    'badges_balanced' => [
+        'color' => '#ffffff',
+        'background_color' => '#629441',
+    ],
+    'badges_energized' => [
+        'color' => '#ffffff',
+        'background_color' => '#e67f00',
+    ],
+    'badges_assertive' => [
+        'color' => '#ffffff',
+        'background_color' => '#ad3830',
+    ],
+    'badges_royal' => [
+        'color' => '#ffffff',
+        'background_color' => '#886aea',
+    ],
+    'badges_dark' => [
+        'color' => '#ffffff',
+        'background_color' => '#2b2b2b',
+    ],
+    'util' => [
+        'color' => '#5b5d6e',
+        'background_color' => '#5b5d6e',
+        'border_color' => '#5b5d6e',
+    ],
+    'util_light' => [
+        'color' => '#dddddd',
+        'background_color' => '#dddddd',
+        'border_color' => '#dddddd',
+    ],
+    'util_positive' => [
+        'color' => '#ffc850',
+        'background_color' => '#ffc850',
+        'border_color' => '#ffc850',
+    ],
+    'util_calm' => [
+        'color' => '#2990ad',
+        'background_color' => '#2990ad',
+        'border_color' => '#2990ad',
+    ],
+    'util_balanced' => [
+        'color' => '#629441',
+        'background_color' => '#629441',
+        'border_color' => '#629441',
+    ],
+    'util_energized' => [
+        'color' => '#e67f00',
+        'background_color' => '#e67f00',
+        'border_color' => '#e67f00',
+    ],
+    'util_assertive' => [
+        'color' => '#ad3830',
+        'background_color' => '#ad3830',
+        'border_color' => '#ad3830',
+    ],
+    'util_royal' => [
+        'color' => '#886aea',
+        'background_color' => '#886aea',
+        'border_color' => '#886aea',
+    ],
+    'util_dark' => [
+        'color' => '#2b2b2b',
         'background_color' => '#2b2b2b',
         'border_color' => '#2b2b2b',
     ],

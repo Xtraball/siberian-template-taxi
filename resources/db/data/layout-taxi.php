@@ -1,19 +1,25 @@
 <?php
+
+use Siberian\Json;
+use Siberian\Feature;
+use Application_Model_Layout_Category as LayoutCategory;
+use Application_Model_Layout_Homepage as LayoutHomepage;
+
 // LayoutCinema!
-$defaultOptions = Siberian_Json::encode(
+$defaultOptions = Json::encode(
     [
         'sidebarWidthUnit' => 'percentage',
         'sidebarWidth' => '70',
     ]
 );
 
-$defaultLayoutCategory = (new Application_Model_Layout_Category())
+$defaultLayoutCategory = (new LayoutCategory())
     ->find('default', 'code');
 
-$datas = [
+$data = [
     'name' => 'Layout Taxi',
     'category_id' => $defaultLayoutCategory->getId(),
-    'visibility' => Application_Model_Layout_Homepage::VISIBILITY_TOGGLE,
+    'visibility' => LayoutHomepage::VISIBILITY_TOGGLE,
     'code' => 'layout_taxi',
     'preview' => '/customization/layout/homepage/layout_taxi.png',
     'preview_new' => '/customization/layout/homepage/layout_taxi_new.png',
@@ -29,4 +35,4 @@ $datas = [
     'options' => $defaultOptions,
 ];
 
-Siberian_Feature::installApplicationLayout($datas);
+Feature::installApplicationLayout($data);

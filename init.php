@@ -1,11 +1,34 @@
 <?php
+
+use Siberian\Hook;
+use Siberian\Assets;
+
+/**
+ * @param $payload
+ * @return mixed
+ */
+function enforceToggle ($payload)
+{
+    if ($payload["featureBlock"]["layout_code"] === "layout_taxi") {
+        $payload["featureBlock"]["layout"]["visibility"] = "toggle";
+        $payload["featureBlock"]["layout"]["layout_options"] = [
+            "sidebarWidthUnit" => "percentage",
+            "sidebarWidth" => "70"
+        ];
+    }
+
+    return $payload;
+}
+
 $init = function($bootstrap) {
     # Registering layout_taxi
-    Siberian_Assets::registerAssets('TemplateTaxi', '/app/local/modules/TemplateTaxi/resources/var/apps/');
-    Siberian_Assets::addJavascripts([
+    Assets::registerAssets('TemplateTaxi', '/app/local/modules/TemplateTaxi/resources/var/apps/');
+    Assets::addJavascripts([
         'modules/layout/home/layout_taxi/hooks.js'
     ]);
-    Siberian_Assets::addStylesheets([
+    Assets::addStylesheets([
         'modules/layout/home/layout_taxi/style.css'
     ]);
+
+    Hook::listen("app.init.ready", "layout_taxi_enforce_toggle", "enforceToggle");
 };

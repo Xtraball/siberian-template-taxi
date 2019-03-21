@@ -49,18 +49,21 @@ angular.module('starter').service('layout_taxi', function ($rootScope, HomepageL
             return option.code === "cabride";
         });
 
-        service.cabride.is_visible = false;
+        // Only if cabride is added!
+        if (service.cabride) {
+            service.cabride.is_visible = false;
 
-        // We do exclude cabride from all the features we will handle them manually!
-        _.remove(features.options, function (option) {
-            return option.code === "cabride";
-        });
+            // We do exclude cabride from all the features we will handle them manually!
+            _.remove(features.options, function (option) {
+                return option.code === "cabride";
+            });
 
-        features.options.forEach(function (option) {
-            option.is_visible = true;
-        });
+            features.options.forEach(function (option) {
+                option.is_visible = true;
+            });
 
-        features.options.unshift(service.cabride);
+            features.options.unshift(service.cabride);
+        }
 
         return features;
     };

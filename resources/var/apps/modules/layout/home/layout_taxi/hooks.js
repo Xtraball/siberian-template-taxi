@@ -1,6 +1,6 @@
 angular.module('starter').service('layout_taxi', function ($rootScope, HomepageLayout) {
 
-    let service = {
+    var service = {
         cabride: null
     };
 

@@ -76,7 +76,7 @@ angular.module('starter').service('layout_taxi', function ($rootScope, HomepageL
 angular.module('starter').controller('LayoutTaxiController', function ($scope, $rootScope, $state, $timeout,
                                                                        $ionicSideMenuDelegate,
                                                                        $ionicHistory, Customer,
-                                                                       SB, layout_taxi) {
+                                                                       SB, Application, layout_taxi) {
     angular.extend($scope, {
         isOnline: false,
         customer: null,
@@ -84,7 +84,10 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
         isLoggedIn: Customer.isLoggedIn(),
         isPassenger: false,
         isDriver: false,
-        cabride: layout_taxi.cabride
+        cabride: layout_taxi.cabride,
+        taxiHeaderStyle: {
+            backgroundImage: 'url("./features/cabride/assets/templates/images/008-background.png")'
+        }
     });
 
     /**
@@ -170,7 +173,6 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
 
     // Answer for a call form the cabride controller!
     $rootScope.$on("cabride.isTaxiLayoutActive", function () {
-        console.log("// Answer for a call form the cabride controller!");
         $rootScope.$broadcast("cabride.isTaxiLayout");
     });
 
@@ -217,6 +219,12 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
     $rootScope.$on('cabride.aggregateInformation', function (event, data) {
         $timeout(function () {
             $scope.information = data.information;
+        });
+    });
+
+    $rootScope.$on("cabride.setNavBackground", function (event, data) {
+        $timeout(function () {
+            $scope.taxiHeaderStyle.backgroundImage = data.navBackground;
         });
     });
 

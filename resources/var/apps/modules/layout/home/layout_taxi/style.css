@@ -6,7 +6,7 @@
 }
 
 .layout_taxi .items {
-    margin-top: 1em;
+    padding-top: 1em;
 }
 
 .layout_taxi .lines {
@@ -161,7 +161,7 @@
     }
 
     .layout_taxi .items {
-        margin-top: 3rem;
+        padding-top: 3rem;
     }
 
     .layout_taxi .status-toggler {

@@ -2,6 +2,7 @@
 
 use Siberian\Hook;
 use Siberian\Assets;
+use Siberian\Feature;
 
 /**
  * @param $payload
@@ -31,4 +32,19 @@ $init = function($bootstrap) {
     ]);
 
     Hook::listen("app.init.ready", "layout_taxi_enforce_toggle", "enforceToggle");
+
+    //Feature::registerLayoutOptionsCallbacks("layout_taxi", "TemplateTaxi_Form_LayoutTaxiOptions", function($data) {
+    //    $options = [
+    //        "navBackground" => $data["navBackground"],
+    //    ];
+//
+    //    return $options;
+    //});
+//
+    //Feature::registerDataProcessorForLayout("layout_taxi", function ($data, $application) {
+    //    unset($data["MAX_FILE_SIZE"]);
+    //    $data["navBackground"] = Feature::moveUploadedIcon($application->getId(), $data["navBackground"]);
+//
+    //    return $data;
+    //});
 };

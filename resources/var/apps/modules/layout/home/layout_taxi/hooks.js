@@ -160,16 +160,17 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
     };
 
     // On load!
-    Customer.find()
-        .then(function(customer) {
-            $scope.customer = customer;
-            $scope.customer.metadatas = _.isObject($scope.customer.metadatas)
-                ? $scope.customer.metadatas
-                : {};
-            $scope.avatarUrl = Customer.getAvatarUrl($scope.customer.id);
+    Customer
+    .find()
+    .then(function(customer) {
+        $scope.customer = customer;
+        $scope.customer.metadatas = _.isObject($scope.customer.metadatas)
+            ? $scope.customer.metadatas
+            : {};
+        $scope.avatarUrl = Customer.getAvatarUrl($scope.customer.id);
 
-            return customer;
-        });
+        return customer;
+    });
 
     // Answer for a call form the cabride controller!
     $rootScope.$on("cabride.isTaxiLayoutActive", function () {

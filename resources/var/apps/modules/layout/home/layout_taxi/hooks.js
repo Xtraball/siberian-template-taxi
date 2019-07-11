@@ -70,13 +70,14 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
                                                                        $ionicSideMenuDelegate,
                                                                        $ionicHistory, Customer,
                                                                        SB, Application, layout_taxi) {
+
     angular.extend($scope, {
         isOnline: false,
         customer: null,
         information: null,
         isLoggedIn: Customer.isLoggedIn(),
-        isPassenger: Cabride.isPassenger,
-        isDriver: Cabride.isDriver,
+        isPassenger: false,
+        isDriver: false,
         cabride: layout_taxi.cabride,
         taxiHeaderStyle: {
             backgroundImage: 'url("./features/cabride/assets/templates/images/008-background.png")'
@@ -234,9 +235,5 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
         $scope.isDriver = true;
         $scope.rebuildMenu();
     });
-
-    // Set nav background!
-    $scope.taxiHeaderStyle.backgroundImage = "url('" + IMAGE_URL + Cabride.settings.navBackground + "')";
-
 });
 

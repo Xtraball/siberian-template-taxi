@@ -1,4 +1,4 @@
-angular.module('starter').service('layout_taxi', function ($rootScope, HomepageLayout) {
+angular.module('starter').service('layout_taxi', function (Pages) {
 
     var service = {
         cabride: null
@@ -41,11 +41,8 @@ angular.module('starter').service('layout_taxi', function ($rootScope, HomepageL
      * @returns {*}
      */
     service.features = function (features, moreButton) {
-        /**
-         * Checking for TaxiRide module!
-         */
-
-        service.cabride = _.find(features.options, function (option) {
+        // Checking for CabRide module!
+        service.cabride = _.find(Pages.getActivePages(), function (option) {
             return option.code === "cabride";
         });
 
@@ -56,10 +53,6 @@ angular.module('starter').service('layout_taxi', function ($rootScope, HomepageL
             // We do exclude cabride from all the features we will handle them manually!
             _.remove(features.options, function (option) {
                 return option.code === "cabride";
-            });
-
-            features.options.forEach(function (option) {
-                option.is_visible = true;
             });
 
             features.options.unshift(service.cabride);
@@ -82,8 +75,8 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
         customer: null,
         information: null,
         isLoggedIn: Customer.isLoggedIn(),
-        isPassenger: false,
-        isDriver: false,
+        isPassenger: Cabride.isPassenger,
+        isDriver: Cabride.isDriver,
         cabride: layout_taxi.cabride,
         taxiHeaderStyle: {
             backgroundImage: 'url("./features/cabride/assets/templates/images/008-background.png")'
@@ -94,16 +87,13 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
      * @param identifier
      */
     $scope.loadPage = function (identifier) {
-        if ($ionicSideMenuDelegate.isOpenLeft()) {
-            $ionicSideMenuDelegate.toggleLeft();
-        }
-        if ($ionicSideMenuDelegate.isOpenRight()) {
-            $ionicSideMenuDelegate.toggleRight();
-        }
+        $rootScope.$broadcast("sideMenu.close");
+
         $ionicHistory.nextViewOptions({
             historyRoot: true,
             disableAnimate: false
         });
+
         switch (identifier) {
             case "my-rides":
                 $state.go("cabride-my-rides");
@@ -244,5 +234,9 @@ angular.module('starter').controller('LayoutTaxiController', function ($scope, $
         $scope.isDriver = true;
         $scope.rebuildMenu();
     });
+
+    // Set nav background!
+    $scope.taxiHeaderStyle.backgroundImage = "url('" + IMAGE_URL + Cabride.settings.navBackground + "')";
+
 });
 
